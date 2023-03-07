@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react'
-import { GlobalContext, MathOperation } from '../../context/GlobalContext'
+import { GlobalContext, MathOperation, TypeSidebarPanel } from '../../context/GlobalContext'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './Operations.css'
@@ -14,7 +14,7 @@ const Operations = () => {
 	const add = useCallback(() => { setCurrentMathOperation(MathOperation.add) }, [setCurrentMathOperation]);
 
 	return (
-		<SidebarPanel>
+		<SidebarPanel type={TypeSidebarPanel.operations}>
 			<div className='operations'>
 				<SidebarButton title='/' onClick={divie} />
 				<SidebarButton title='X' onClick={multiply} />

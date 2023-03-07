@@ -1,10 +1,11 @@
 import React from 'react'
-import SidebarPanel from '../SidebarPanel/SidebarPanel'
+import { TypeSidebarPanel } from '../../context/GlobalContext'
+import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './EqualButton.css'
 
 const EqualButton = () => {
 	return (
-		<SidebarPanel>
+		<SidebarPanel type={TypeSidebarPanel.equal}>
 			<div className='equalButton'>
 				=
 			</div>

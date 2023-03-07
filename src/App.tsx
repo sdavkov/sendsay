@@ -1,4 +1,6 @@
 import React from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import './App.css';
 import Canvas from './components/Canvas/Canvas';
 import Header from './components/Header/Header';
@@ -12,8 +14,10 @@ function App() {
         <div className="app">
           <Header />
           <div className="content">
-            <Sidebar />
-            <Canvas />
+            <DndProvider backend={HTML5Backend}>
+              <Sidebar />
+              <Canvas />
+            </DndProvider>
           </div>
         </div>
       </div>

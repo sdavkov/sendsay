@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react'
-import SidebarPanel from '../SidebarPanel/SidebarPanel';
+import { TypeSidebarPanel } from '../../context/GlobalContext';
+import SidebarPanel from '../UI/SidebarPanel/SidebarPanel';
 import './Display.css'
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 
 const Display: FC<Props> = ({ value }: Props) => {
 	return (
-		<SidebarPanel>
+		<SidebarPanel type={TypeSidebarPanel.display}>
 			<div className='display'>
 				{value}
 			</div>

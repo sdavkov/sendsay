@@ -1,9 +1,9 @@
 import React from 'react'
 import './Sidebar.css'
-import Display from '../UI/Display/Display'
+import Display from '../Display/Display'
 import Operations from '../Operations/Operations'
 import Digits from '../Digits/Digits'
-import EqualButton from '../UI/EqualButton/EqualButton'
+import EqualButton from '../EqualButton/EqualButton'
 
 const Sidebar = () => {
 	return (

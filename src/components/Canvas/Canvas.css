@@ -10,12 +10,23 @@
 .canvas .placeholder {
 	color: #6B7280;
 	text-align: center;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 15px;
 }
 
 .canvas .placeholder .title {
 	color: #5D5FEF;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	margin-bottom: 4px;
 }
 
 .canvas .drag {
-  background-color: #F0F9FF;
+	background-color: #F0F9FF;
 }

@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react'
-import { GlobalContext, MathOperation } from '../../context/GlobalContext'
+import { GlobalContext, TypeSidebarPanel } from '../../context/GlobalContext'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './Digits.css'
@@ -11,7 +11,7 @@ const Digits = () => {
 	const setDigit = useCallback((digit: number | ',') => { setCurrentDigit(digit) }, [setCurrentDigit]);
 
 	return (
-		<SidebarPanel>
+		<SidebarPanel type={TypeSidebarPanel.digits}>
 			<div className='digits'>
 				<SidebarButton title='7' onClick={() => setDigit(7)} />
 				<SidebarButton title='8' onClick={() => setDigit(8)} />

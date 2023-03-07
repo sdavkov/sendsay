@@ -5,6 +5,13 @@ export enum Mode {
 	Constructor
 }
 
+export enum TypeSidebarPanel {
+	display='display',
+	operations='operations',
+	digits='digits',
+	equal='equal'
+}
+
 export enum MathOperation {
 	divide,
 	multiply,
