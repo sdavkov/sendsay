@@ -1,0 +1,26 @@
+.headerButton {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	height: 100%;
+	padding: 0 12px;
+	font-weight: 500;
+	font-family: Inter;
+	font-size: 14px;
+	line-height: 15px;
+	cursor: pointer;
+}
+
+.headerButton img {
+	color: #4D5562;
+}
+
+.headerButton.active {
+	background: #FFFFFF;
+	border: 1px solid #E2E3E5;
+	border-radius: 5px;
+}
+
+.headerButton.active img {
+	color: #5D5FEF;
+}

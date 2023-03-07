@@ -1,0 +1,9 @@
+.header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-basis: 60px;
+	background-color: #F3F4F6;
+	border-radius: 5px;
+	padding: 1px;
+}
