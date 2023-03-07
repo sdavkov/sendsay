@@ -1,15 +1,16 @@
 import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { Provider } from 'react-redux';
 import './App.css';
 import Canvas from './components/Canvas/Canvas';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
-import GlobalContextProvider from './context/GlobalContext';
+import { store } from '../src/store/store'
 
 function App() {
   return (
-    <GlobalContextProvider>
+    <Provider store={store}>
       <div className="wrapper">
         <div className="app">
           <Header />
@@ -21,7 +22,7 @@ function App() {
           </div>
         </div>
       </div>
-    </GlobalContextProvider>
+    </Provider>
   );
 }
 

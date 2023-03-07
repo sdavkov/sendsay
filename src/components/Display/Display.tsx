@@ -1,17 +1,17 @@
-import React, { FC, memo } from 'react'
-import { TypeSidebarPanel } from '../../context/GlobalContext';
+import React, { memo } from 'react'
+import { TypeSidebarPanel } from '../../store/slices/convas';
+import { useAppSelector } from '../../store/store';
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel';
 import './Display.css'
 
-type Props = {
-	value: number;
-}
+const Display = () => {
+	const panels = useAppSelector((state) => state.convas.panels)
+	const isDrag = panels.includes(TypeSidebarPanel.display)
 
-const Display: FC<Props> = ({ value }: Props) => {
 	return (
-		<SidebarPanel type={TypeSidebarPanel.display}>
+		<SidebarPanel type={TypeSidebarPanel.display} isDrag={isDrag}>
 			<div className='display'>
-				{value}
+				{0}
 			</div>
 		</SidebarPanel>
 	)

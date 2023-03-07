@@ -8,7 +8,7 @@ import EqualButton from '../EqualButton/EqualButton'
 const Sidebar = () => {
 	return (
 		<aside className='sidebar'>
-			<Display value={0} />
+			<Display />
 			<Operations />
 			<Digits />
 			<EqualButton />

@@ -1,28 +1,28 @@
 import React, { FC, memo } from 'react'
 import { useDrag } from 'react-dnd'
-import { TypeSidebarPanel } from '../../../context/GlobalContext';
+import { TypeSidebarPanel } from '../../../store/slices/convas';
 import './SidebarPanel.css'
 
 type Props = {
 	children: React.ReactNode;
 	type: TypeSidebarPanel;
+	isDrag: boolean;
 }
 
-const SidebarPanel: FC<Props> = ({ children }) => {
+const SidebarPanel: FC<Props> = ({ children, type, isDrag }) => {
 
-	const [{ opacity }, ref] = useDrag(() => ({
-		type: 'display',
-		item: {},
+	const [{ isDraging }, ref] = useDrag(() => ({
+		type: 'panel',
+		item: { type },
 		collect: (monitor) => ({
-			opacity: monitor.isDragging() ? 0.5 : 1
+			isDraging: monitor.isDragging()
 		})
 	}))
 
 	return (
 		<div
-			style={{ opacity }}
 			ref={ref}
-			className='sidebarPanel'>
+			className={`sidebarPanel ${isDrag || isDraging ? 'drag' : ''}`}>
 			{children}
 		</div>
 	)

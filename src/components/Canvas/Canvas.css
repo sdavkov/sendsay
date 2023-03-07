@@ -1,7 +1,6 @@
 .canvas {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
 	width: 243px;
 	border: 2px dashed #C4C4C4;
 	border-radius: 6px;

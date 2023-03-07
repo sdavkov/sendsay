@@ -1,25 +1,30 @@
 import React, { useCallback, useContext } from 'react'
-import { GlobalContext, MathOperation, TypeSidebarPanel } from '../../context/GlobalContext'
+import { TypeSidebarPanel } from '../../store/slices/convas'
+import { useAppSelector } from '../../store/store'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './Operations.css'
 
+export enum MathOperation {
+	divide,
+	multiply,
+	subtract,
+	add
+}
+
 const Operations = () => {
+	const panels = useAppSelector((state) => state.convas.panels)
+	const isDrag = panels.includes(TypeSidebarPanel.operations)
 
-	const { setCurrentMathOperation } = useContext(GlobalContext);
-
-	const divie = useCallback(() => { setCurrentMathOperation(MathOperation.divide) }, [setCurrentMathOperation]);
-	const multiply = useCallback(() => { setCurrentMathOperation(MathOperation.multiply) }, [setCurrentMathOperation]);
-	const subtract = useCallback(() => { setCurrentMathOperation(MathOperation.subtract) }, [setCurrentMathOperation]);
-	const add = useCallback(() => { setCurrentMathOperation(MathOperation.add) }, [setCurrentMathOperation]);
+	const onClickHandler = () => {}
 
 	return (
-		<SidebarPanel type={TypeSidebarPanel.operations}>
+		<SidebarPanel type={TypeSidebarPanel.operations} isDrag={isDrag}>
 			<div className='operations'>
-				<SidebarButton title='/' onClick={divie} />
-				<SidebarButton title='X' onClick={multiply} />
-				<SidebarButton title='-' onClick={subtract} />
-				<SidebarButton title='+' onClick={add} />
+				<SidebarButton title='/' onClick={onClickHandler} />
+				<SidebarButton title='X' onClick={onClickHandler} />
+				<SidebarButton title='-' onClick={onClickHandler} />
+				<SidebarButton title='+' onClick={onClickHandler} />
 			</div>
 		</SidebarPanel>
 	)

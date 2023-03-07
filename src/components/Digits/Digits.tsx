@@ -1,17 +1,18 @@
-import React, { useCallback, useContext } from 'react'
-import { GlobalContext, TypeSidebarPanel } from '../../context/GlobalContext'
+import React, { useCallback } from 'react'
+import { TypeSidebarPanel } from '../../store/slices/convas'
+import { useAppSelector } from '../../store/store'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './Digits.css'
 
 const Digits = () => {
-
-	const { setDigit: setCurrentDigit } = useContext(GlobalContext);
-
-	const setDigit = useCallback((digit: number | ',') => { setCurrentDigit(digit) }, [setCurrentDigit]);
+	const panels = useAppSelector((state) => state.convas.panels)
+	const isDrag = panels.includes(TypeSidebarPanel.display)
+	
+	const setDigit = useCallback((digit: number | ',') => { }, []);
 
 	return (
-		<SidebarPanel type={TypeSidebarPanel.digits}>
+		<SidebarPanel type={TypeSidebarPanel.digits} isDrag={isDrag}>
 			<div className='digits'>
 				<SidebarButton title='7' onClick={() => setDigit(7)} />
 				<SidebarButton title='8' onClick={() => setDigit(8)} />
