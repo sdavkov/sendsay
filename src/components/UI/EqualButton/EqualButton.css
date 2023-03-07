@@ -1,4 +1,14 @@
 .equalButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: #5D5FEF;
 	color: #ffffff;
+	height: 64px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 15px;
+	border-radius: 6px;
 }

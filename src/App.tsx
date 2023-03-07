@@ -8,11 +8,13 @@ import GlobalContextProvider from './context/GlobalContext';
 function App() {
   return (
     <GlobalContextProvider>
-      <div className="app">
-        <Header />
-        <div className="content">
-          <Sidebar />
-          <Canvas />
+      <div className="wrapper">
+        <div className="app">
+          <Header />
+          <div className="content">
+            <Sidebar />
+            <Canvas />
+          </div>
         </div>
       </div>
     </GlobalContextProvider>

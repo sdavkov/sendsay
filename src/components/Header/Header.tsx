@@ -9,21 +9,23 @@ const Header = () => {
 	const { changeCurrentMode, currentMode } = useContext(GlobalContext);
 
 	return (
-		<header className='header'>
-			<HeaderButton
-				title='Constructor'
-				active={currentMode === Mode.Constructor}
-				onClick={changeCurrentMode}
-				icon={<img src={eyeIcon} alt='Конструктор' />}
-			/>
-			<HeaderButton
-				title='Runtime'
-				active={currentMode === Mode.Runtime}
-				onClick={changeCurrentMode}
-				icon={<img src={selectorIcon}
-					alt='Конструктор' />}
-			/>
-		</header>
+		<div className="header">
+			<header className='menu'>
+				<HeaderButton
+					title='Constructor'
+					active={currentMode === Mode.Constructor}
+					onClick={changeCurrentMode}
+					icon={<img src={eyeIcon} alt='Конструктор' />}
+				/>
+				<HeaderButton
+					title='Runtime'
+					active={currentMode === Mode.Runtime}
+					onClick={changeCurrentMode}
+					icon={<img src={selectorIcon}
+						alt='Конструктор' />}
+				/>
+			</header>
+		</div>
 	)
 }
 

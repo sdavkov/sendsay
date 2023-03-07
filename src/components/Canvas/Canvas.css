@@ -1,3 +1,21 @@
 .canvas {
-	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 243px;
+	border: 2px dashed #C4C4C4;
+	border-radius: 6px;
+}
+
+.canvas .placeholder {
+	color: #6B7280;
+	text-align: center;
+}
+
+.canvas .placeholder .title {
+	color: #5D5FEF;
+}
+
+.canvas .drag {
+  background-color: #F0F9FF;
 }
