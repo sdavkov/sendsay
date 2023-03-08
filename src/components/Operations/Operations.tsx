@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { removePanel, TypeSidebarPanel } from '../../store/slices/convas'
-import { setOperator } from '../../store/slices/math'
+import { Operators, setOperator } from '../../store/slices/math'
 import { useAppDispatch, useAppSelector } from '../../store/store'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
@@ -15,8 +15,8 @@ const Operations = () => {
 		dispatch(removePanel(TypeSidebarPanel.operations));
 	}, [dispatch])
 
-	const setOperatorHandler = useCallback((operation: string | ',') => {
-		dispatch(setOperator(operation))
+	const setOperatorHandler = useCallback((operation: string) => {
+		dispatch(setOperator(operation as Operators))
 	}, [dispatch]);
 
 	return (
@@ -26,10 +26,10 @@ const Operations = () => {
 			onDoubleClick={onPanelDoubleClickHandler}
 		>
 			<div className='operations'>
-				<SidebarButton title='/' onClick={setOperatorHandler} />
-				<SidebarButton title='X' onClick={setOperatorHandler} />
-				<SidebarButton title='-' onClick={setOperatorHandler} />
-				<SidebarButton title='+' onClick={setOperatorHandler} />
+				<SidebarButton title={Operators.divide} onClick={setOperatorHandler} />
+				<SidebarButton title={Operators.multiply} onClick={setOperatorHandler} />
+				<SidebarButton title={Operators.subtract} onClick={setOperatorHandler} />
+				<SidebarButton title={Operators.add} onClick={setOperatorHandler} />
 			</div>
 		</SidebarPanel>
 	)

@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { removePanel, TypeSidebarPanel } from '../../store/slices/convas'
+import { compute } from '../../store/slices/math'
 import { useAppDispatch, useAppSelector } from '../../store/store'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './EqualButton.css'
@@ -13,13 +14,17 @@ const EqualButton = () => {
 		dispatch(removePanel(TypeSidebarPanel.equal));
 	}, [dispatch])
 
+	const onClickHandler = useCallback(() => {
+		dispatch(compute());
+	}, [dispatch])
+
 	return (
 		<SidebarPanel
 			type={TypeSidebarPanel.equal}
 			isDrag={isDrag}
 			onDoubleClick={onPanelDoubleClickHandler}
 		>
-			<div className='equalButton'>
+			<div className='equalButton' onClick={onClickHandler}>
 				=
 			</div>
 		</SidebarPanel>

@@ -8,6 +8,7 @@ import selectorActiveIcon from '../../images/selector_active.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../store/store'
 import { changeCurrentMode, Mode } from '../../store/slices/mode'
+import { reset } from '../../store/slices/math'
 
 const Header = () => {
 	const currentMode = useSelector<RootState>((state) => state.mode.currentMode)
@@ -15,6 +16,7 @@ const Header = () => {
 
 	const changeCurrentModeHandler = useCallback(() => {
 		dispatch(changeCurrentMode());
+		dispatch(reset());
 	}, [dispatch])
 
 	return (
