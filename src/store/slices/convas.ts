@@ -26,7 +26,7 @@ export const convasSlice = createSlice({
 				state.panels.push(action.payload);
 		},
 		removePanel: (state, action: PayloadAction<TypeSidebarPanel>) => {
-			state.panels.filter(p => p !== action.payload);
+			state.panels = state.panels.filter(p => p !== action.payload);
 		},
 		clearConvas: (state) => {
 			state.panels = [];

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
-import { TypeSidebarPanel } from '../../store/slices/convas'
-import { useAppSelector } from '../../store/store'
+import { removePanel, TypeSidebarPanel } from '../../store/slices/convas'
+import { useAppDispatch, useAppSelector } from '../../store/store'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './Digits.css'
@@ -8,11 +8,20 @@ import './Digits.css'
 const Digits = () => {
 	const panels = useAppSelector((state) => state.convas.panels)
 	const isDrag = panels.includes(TypeSidebarPanel.digits)
-	
+	const dispatch = useAppDispatch()
+
+	const onPanelDoubleClickHandler = useCallback((type: TypeSidebarPanel) => {
+		dispatch(removePanel(TypeSidebarPanel.digits));
+	}, [dispatch])
+
 	const setDigit = useCallback((digit: number | ',') => { }, []);
 
 	return (
-		<SidebarPanel type={TypeSidebarPanel.digits} isDrag={isDrag}>
+		<SidebarPanel
+			type={TypeSidebarPanel.digits}
+			isDrag={isDrag}
+			onDoubleClick={onPanelDoubleClickHandler}
+		>
 			<div className='digits'>
 				<SidebarButton title='7' onClick={() => setDigit(7)} />
 				<SidebarButton title='8' onClick={() => setDigit(8)} />

@@ -15,7 +15,7 @@ const Canvas = () => {
 	const [{ isHover }, ref] = useDrop({
 		accept: 'panel',
 		canDrop({ type }: { type: TypeSidebarPanel }) {
-			if (panels.find(p => p === type))
+			if (panels.includes(type))
 				return false;
 			return true;
 		},

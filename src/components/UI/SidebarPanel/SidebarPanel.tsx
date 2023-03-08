@@ -7,9 +7,10 @@ type Props = {
 	children: React.ReactNode;
 	type: TypeSidebarPanel;
 	isDrag: boolean;
+	onDoubleClick: (type: TypeSidebarPanel) => void;
 }
 
-const SidebarPanel: FC<Props> = ({ children, type, isDrag }) => {
+const SidebarPanel: FC<Props> = ({ children, type, isDrag, onDoubleClick }) => {
 
 	const [{ isDraging }, ref] = useDrag(() => ({
 		type: 'panel',
@@ -21,8 +22,10 @@ const SidebarPanel: FC<Props> = ({ children, type, isDrag }) => {
 
 	return (
 		<div
+			onDoubleClick={() => onDoubleClick(type)}
 			ref={ref}
-			className={`sidebarPanel ${isDrag || isDraging ? 'draged' : ''}`}>
+			className={`sidebarPanel ${isDrag || isDraging ? 'draged' : ''}`}
+		>
 			{children}
 		</div>
 	)
