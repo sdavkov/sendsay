@@ -13,6 +13,7 @@
 	line-height: 44px;
 	height: 52px;
 	padding: 4px 8px;
+	overflow: hidden;
 }
 
 .display.error {

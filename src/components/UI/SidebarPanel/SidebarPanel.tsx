@@ -13,7 +13,8 @@ type Props = {
 }
 
 const SidebarPanel: FC<Props> = ({ children, type, isDrag, onDoubleClick, mode }) => {
-	const [{ isDraging }, ref] = useDrag(() => ({
+	
+	const [{ isDraging }, drag] = useDrag(() => ({
 		type: 'panel',
 		item: { type },
 		canDrag: () => {
@@ -28,7 +29,7 @@ const SidebarPanel: FC<Props> = ({ children, type, isDrag, onDoubleClick, mode }
 	return (
 		<div
 			onDoubleClick={() => onDoubleClick(type)}
-			ref={ref}
+			ref={drag}
 			className={`sidebarPanel ${isDrag || isDraging ? 'draged' : ''}`}
 		>
 			{children}
