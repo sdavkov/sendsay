@@ -5,13 +5,6 @@ import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
 import './Operations.css'
 
-export enum MathOperation {
-	divide,
-	multiply,
-	subtract,
-	add
-}
-
 const Operations = () => {
 	const panels = useAppSelector((state) => state.convas.panels)
 	const isDrag = panels.includes(TypeSidebarPanel.operations)

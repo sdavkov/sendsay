@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { removePanel, TypeSidebarPanel } from '../../store/slices/convas'
+import { setOperand } from '../../store/slices/math'
 import { useAppDispatch, useAppSelector } from '../../store/store'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
@@ -14,7 +15,9 @@ const Digits = () => {
 		dispatch(removePanel(TypeSidebarPanel.digits));
 	}, [dispatch])
 
-	const setDigit = useCallback((digit: number | ',') => { }, []);
+	const setDigit = useCallback((digit: string | ',') => {
+		dispatch(setOperand(digit))
+	}, [dispatch]);
 
 	return (
 		<SidebarPanel
@@ -23,17 +26,17 @@ const Digits = () => {
 			onDoubleClick={onPanelDoubleClickHandler}
 		>
 			<div className='digits'>
-				<SidebarButton title='7' onClick={() => setDigit(7)} />
-				<SidebarButton title='8' onClick={() => setDigit(8)} />
-				<SidebarButton title='9' onClick={() => setDigit(8)} />
-				<SidebarButton title='4' onClick={() => setDigit(4)} />
-				<SidebarButton title='5' onClick={() => setDigit(5)} />
-				<SidebarButton title='6' onClick={() => setDigit(6)} />
-				<SidebarButton title='1' onClick={() => setDigit(1)} />
-				<SidebarButton title='2' onClick={() => setDigit(2)} />
-				<SidebarButton title='3' onClick={() => setDigit(3)} />
-				<SidebarButton title='0' onClick={() => setDigit(0)} styles={{ gridColumn: 'span 2' }} />
-				<SidebarButton title=',' onClick={() => setDigit(',')} />
+				<SidebarButton title='7' onClick={setDigit} />
+				<SidebarButton title='8' onClick={setDigit} />
+				<SidebarButton title='9' onClick={setDigit} />
+				<SidebarButton title='4' onClick={setDigit} />
+				<SidebarButton title='5' onClick={setDigit} />
+				<SidebarButton title='6' onClick={setDigit} />
+				<SidebarButton title='1' onClick={setDigit} />
+				<SidebarButton title='2' onClick={setDigit} />
+				<SidebarButton title='3' onClick={setDigit} />
+				<SidebarButton title='0' onClick={setDigit} styles={{ gridColumn: 'span 2' }} />
+				<SidebarButton title=',' onClick={setDigit} />
 			</div>
 		</SidebarPanel>
 	)

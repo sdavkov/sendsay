@@ -3,15 +3,20 @@ import './SidebarButton.css'
 
 type Props = {
 	title: string;
-	onClick: () => void;
+	onClick: (digit: string) => void;
 	styles?: CSSProperties;
 }
 
 const SidebarButton: FC<Props> = ({ title, onClick, styles }) => {
+
+	const onClickHandler = () => {
+		onClick(title);
+	}
+
 	return (
 		<div
 			role='button'
-			onClick={onClick}
+			onClick={onClickHandler}
 			className='sidebarButton'
 			style={styles}
 		>
