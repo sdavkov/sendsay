@@ -26,7 +26,7 @@ const Canvas = () => {
 			isHover: monitor.isOver(),
 		})
 	});
-	console.log(panels)
+
 	return (
 		<main
 			className='canvas'
@@ -39,13 +39,13 @@ const Canvas = () => {
 				? panels.map(p => {
 					switch (p) {
 						case TypeSidebarPanel.display:
-							return (<Display />)
+							return (<Display key={p} />)
 						case TypeSidebarPanel.digits:
-							return (<Digits />)
+							return (<Digits key={p} />)
 						case TypeSidebarPanel.operations:
-							return (<Operations />)
+							return (<Operations key={p} />)
 						case TypeSidebarPanel.equal:
-							return (<EqualButton />)
+							return (<EqualButton key={p} />)
 						default:
 							return null;
 					}

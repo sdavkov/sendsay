@@ -20,7 +20,10 @@ export const convasSlice = createSlice({
 	initialState,
 	reducers: {
 		addPanel: (state, action: PayloadAction<TypeSidebarPanel>) => {
-			state.panels.push(action.payload);
+			if (action.payload === TypeSidebarPanel.display)
+				state.panels.unshift(action.payload)
+			else
+				state.panels.push(action.payload);
 		},
 		removePanel: (state, action: PayloadAction<TypeSidebarPanel>) => {
 			state.panels.filter(p => p !== action.payload);

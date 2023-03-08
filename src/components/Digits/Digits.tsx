@@ -7,7 +7,7 @@ import './Digits.css'
 
 const Digits = () => {
 	const panels = useAppSelector((state) => state.convas.panels)
-	const isDrag = panels.includes(TypeSidebarPanel.display)
+	const isDrag = panels.includes(TypeSidebarPanel.digits)
 	
 	const setDigit = useCallback((digit: number | ',') => { }, []);
 

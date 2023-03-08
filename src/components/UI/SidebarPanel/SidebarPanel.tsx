@@ -22,7 +22,7 @@ const SidebarPanel: FC<Props> = ({ children, type, isDrag }) => {
 	return (
 		<div
 			ref={ref}
-			className={`sidebarPanel ${isDrag || isDraging ? 'drag' : ''}`}>
+			className={`sidebarPanel ${isDrag || isDraging ? 'draged' : ''}`}>
 			{children}
 		</div>
 	)
