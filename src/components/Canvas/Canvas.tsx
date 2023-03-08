@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 import { addPanel, TypeSidebarPanel } from '../../store/slices/convas';
+import { Place } from '../../store/slices/mode';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import Digits from '../Digits/Digits';
 import Display from '../Display/Display';
@@ -39,7 +40,7 @@ const Canvas = () => {
 				? panels.map(p => {
 					switch (p) {
 						case TypeSidebarPanel.display:
-							return (<Display key={p} />)
+							return (<Display key={p} currentPlace={Place.Canvas} />)
 						case TypeSidebarPanel.digits:
 							return (<Digits key={p} />)
 						case TypeSidebarPanel.operations:

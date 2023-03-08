@@ -14,3 +14,7 @@
 	height: 52px;
 	padding: 4px 8px;
 }
+
+.display.error {
+	font-size: 24px;
+}

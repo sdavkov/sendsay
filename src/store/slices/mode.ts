@@ -5,6 +5,11 @@ export enum Mode {
 	Constructor
 }
 
+export enum Place {
+	Sidebar,
+	Canvas,
+}
+
 export type ModeState = {
 	currentMode: Mode;
 }
