@@ -10,7 +10,7 @@ export enum MathOperation {
 export type MathState = {
 	operand1: string | null;
 	operand2: string | null;
-	operator: MathOperation | null;
+	operator: string | null;
 	result: string | null;
 }
 
@@ -32,11 +32,16 @@ export const mathSlice = createSlice({
 			else {
 				state.operand1 = state.operand1 ? state.operand1 + action.payload : action.payload;
 			}
-		}
+		},
+		setOperator: (state, action: PayloadAction<string>) => {
+			if (state.operand1) {
+				state.operator = action.payload;
+			}
+		},
 	}
 })
 
 // Action creators are generated for each case reducer function
-export const { setOperand } = mathSlice.actions
+export const { setOperand, setOperator } = mathSlice.actions
 
 export default mathSlice.reducer

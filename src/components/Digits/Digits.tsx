@@ -15,7 +15,7 @@ const Digits = () => {
 		dispatch(removePanel(TypeSidebarPanel.digits));
 	}, [dispatch])
 
-	const setDigit = useCallback((digit: string | ',') => {
+	const setDigitHandler = useCallback((digit: string | ',') => {
 		dispatch(setOperand(digit))
 	}, [dispatch]);
 
@@ -26,17 +26,17 @@ const Digits = () => {
 			onDoubleClick={onPanelDoubleClickHandler}
 		>
 			<div className='digits'>
-				<SidebarButton title='7' onClick={setDigit} />
-				<SidebarButton title='8' onClick={setDigit} />
-				<SidebarButton title='9' onClick={setDigit} />
-				<SidebarButton title='4' onClick={setDigit} />
-				<SidebarButton title='5' onClick={setDigit} />
-				<SidebarButton title='6' onClick={setDigit} />
-				<SidebarButton title='1' onClick={setDigit} />
-				<SidebarButton title='2' onClick={setDigit} />
-				<SidebarButton title='3' onClick={setDigit} />
-				<SidebarButton title='0' onClick={setDigit} styles={{ gridColumn: 'span 2' }} />
-				<SidebarButton title=',' onClick={setDigit} />
+				<SidebarButton title='7' onClick={setDigitHandler} />
+				<SidebarButton title='8' onClick={setDigitHandler} />
+				<SidebarButton title='9' onClick={setDigitHandler} />
+				<SidebarButton title='4' onClick={setDigitHandler} />
+				<SidebarButton title='5' onClick={setDigitHandler} />
+				<SidebarButton title='6' onClick={setDigitHandler} />
+				<SidebarButton title='1' onClick={setDigitHandler} />
+				<SidebarButton title='2' onClick={setDigitHandler} />
+				<SidebarButton title='3' onClick={setDigitHandler} />
+				<SidebarButton title='0' onClick={setDigitHandler} styles={{ gridColumn: 'span 2' }} />
+				<SidebarButton title=',' onClick={setDigitHandler} />
 			</div>
 		</SidebarPanel>
 	)

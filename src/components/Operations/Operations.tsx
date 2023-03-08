@@ -1,5 +1,6 @@
-import React, { useCallback, useContext } from 'react'
+import React, { useCallback } from 'react'
 import { removePanel, TypeSidebarPanel } from '../../store/slices/convas'
+import { setOperator } from '../../store/slices/math'
 import { useAppDispatch, useAppSelector } from '../../store/store'
 import SidebarButton from '../UI/SidebarButton/SidebarButton'
 import SidebarPanel from '../UI/SidebarPanel/SidebarPanel'
@@ -14,7 +15,9 @@ const Operations = () => {
 		dispatch(removePanel(TypeSidebarPanel.operations));
 	}, [dispatch])
 
-	const onClickHandler = () => { }
+	const setOperatorHandler = useCallback((operation: string | ',') => {
+		dispatch(setOperator(operation))
+	}, [dispatch]);
 
 	return (
 		<SidebarPanel
@@ -23,10 +26,10 @@ const Operations = () => {
 			onDoubleClick={onPanelDoubleClickHandler}
 		>
 			<div className='operations'>
-				<SidebarButton title='/' onClick={onClickHandler} />
-				<SidebarButton title='X' onClick={onClickHandler} />
-				<SidebarButton title='-' onClick={onClickHandler} />
-				<SidebarButton title='+' onClick={onClickHandler} />
+				<SidebarButton title='/' onClick={setOperatorHandler} />
+				<SidebarButton title='X' onClick={setOperatorHandler} />
+				<SidebarButton title='-' onClick={setOperatorHandler} />
+				<SidebarButton title='+' onClick={setOperatorHandler} />
 			</div>
 		</SidebarPanel>
 	)
