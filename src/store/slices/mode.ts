@@ -18,7 +18,7 @@ export const modeSlice = createSlice({
 	initialState,
 	reducers: {
 		changeCurrentMode: (state) => {
-			state.currentMode = state.currentMode === Mode.Constructor ? Mode.Runtime : Mode.Constructor
+			state.currentMode = state.currentMode === Mode.Constructor ? Mode.Runtime : Mode.Constructor;
 		}
 	}
 })
